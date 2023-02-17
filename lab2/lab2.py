@@ -16,14 +16,7 @@ humidity = []
 altitude = []
 
 for i in range(0, 30):
-	#print("\nTemperature: %0.1f C" % bme680.temperature)
-	#print("Gas: %d ohm" % bme680.gas)
-	#print("Humidity: %0.1f %%" % bme680.relative_humidity)
-	#print("Pressure: %0.3f hPa" % bme680.pressure)
-	#print("Altitude = %0.2f meters" % bme680.altitude)
-	
-	#print(i * 2, bme680.temperature, bme680.gas, bme680.relative_humidity, bme680.pressure, bme680.altitude)
-	timebegin.append(i * 2)
+	timebegin.append(time.time())
 	temperature.append(bme680.temperature)
 	gas.append(bme680.gas)
 	pressure.append(bme680.pressure)

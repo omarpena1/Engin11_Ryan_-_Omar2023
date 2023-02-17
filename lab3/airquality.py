@@ -8,7 +8,7 @@ from adafruit_pm25.i2c import PM25_I2C
 reset_pin = None
 
 import serial
-uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
+uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.95)
 
 from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
@@ -21,8 +21,6 @@ pm25 = PM25_UART(uart, reset_pin)
 import time
 
 f = open("airpollutiondata.csv", "w")
-
-itime = time.time()
 
 metadata = ["time", "Concentration Units (Standard) PM 1.0","Concentration Units (Standard) PM 2.5","Concentration Units (Standard) PM 10.0"]
 
@@ -44,6 +42,7 @@ for _ in range(30):
         continue
     
     numbersdata = []
+    itime = time.time()
     numbersdata.append(itime)
     
     print(aqdata["pm10 standard"])
