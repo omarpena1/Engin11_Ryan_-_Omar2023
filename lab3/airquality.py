@@ -13,11 +13,6 @@ uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.95)
 from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
 
-# Create library object, use 'slow' 100KHz frequency!
-#i2c = busio.I2C(board.SCL, board.SDA, frequency=100000)
-# Connect to a PM2.5 sensor over I2C
-#pm25 = PM25_I2C(i2c, reset_pin)
-
 import time
 
 f = open("airpollutiondata.csv", "w")
