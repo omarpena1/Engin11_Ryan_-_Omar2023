@@ -58,7 +58,7 @@ while time.time() < (start_time + int(sys.argv[1])):
         
         f.write("\n")
         
-        time.sleep(2)
+        time.sleep(1)
 
 f.close()
         
