@@ -69,7 +69,7 @@ f.write("\n")
 
 # print("Found PM2.5 sensor, reading data...")
 
-for _ in range(int(sys.argv[2]):
+for _ in range(int(sys.argv[2])):
     
     
     try:
