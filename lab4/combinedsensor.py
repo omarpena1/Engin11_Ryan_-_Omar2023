@@ -43,7 +43,7 @@ while time.time() < (start_time + int(sys.argv[1])):
                 continue
         
         numbersdata = []
-        numbersdata.append(time.time())
+        numbersdata.append(int(time.time()))
         numbersdata.append(bme680.temperature)
         numbersdata.append(bme680.gas)
         numbersdata.append(bme680.pressure)
