@@ -35,7 +35,7 @@ f.write("\n")
 
 start_time = time.time()
 
-while time.time() < (start_time + sys.argv[1]):
+while time.time() < (start_time + int(sys.argv[1])):
         try:
                 aqdata = pm25.read()
         except RuntimeError:
