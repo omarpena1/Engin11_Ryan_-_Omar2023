@@ -52,8 +52,8 @@ pm25 = PM25_UART(uart, reset_pin)
 
 file_name = "outsidedata.csv"
 
-if( len(sys.argv)>0):
-     file_name = sys.argv[0] + file_name
+if( len(sys.argv)>1):
+     file_name = sys.argv[1] + file_name
         
 f = open(file_name, "w")
 
@@ -79,10 +79,6 @@ for _ in range(300):
     numbersdata = []
     itime = int(time.time())
     numbersdata.append(itime)
-    
-    print(aqdata["pm10 standard"])
-    print(aqdata["pm25 standard"])
-    print(aqdata["pm100 standard"])
     
     numbersdata.append(aqdata["pm10 standard"])
     numbersdata.append(aqdata["pm25 standard"])
