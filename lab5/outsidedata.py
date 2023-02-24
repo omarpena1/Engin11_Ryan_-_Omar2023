@@ -8,6 +8,7 @@ import pandas as pd
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 from adafruit_pm25.i2c import PM25_I2C
+import sys
 
 
 i2c = board.I2C()
@@ -50,6 +51,9 @@ pm25 = PM25_UART(uart, reset_pin)
 # import time
 
 file_name = "outsidedata.csv"
+
+if( len(sys.argv)>0):
+     file_name = sys.argv[0] + file_name
         
 f = open(file_name, "w")
 
