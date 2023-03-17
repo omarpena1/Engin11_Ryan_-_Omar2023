@@ -1,31 +1,21 @@
 import RPi.GPIO as GPIO
 import datetime
-<<<<<<< HEAD
 import time
- 
-def my_callback(channel):
-    if GPIO.input(channel) == GPIO.HIGH:
-        print('\n▼  at ' + str(datetime.datetime.now()))
-    else:
-        print('\n ▲ at ' + str(datetime.datetime.now())) 
- 
- 
-for i in range(0,30):
-    try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(6, GPIO.IN)
-        GPIO.add_event_detect(6, GPIO.BOTH, callback=my_callback)
-     
-        message = input('\nPress any key to exit.\n')
-     
-    finally:
-        GPIO.cleanup()
-        
-    time.sleep(1)
- 
-print("Goodbye!")
-=======
 
-channel = GPIO.wait_for_edge(channel, GPIO_FALLING)
-print('Edge detected on channel', channel)
->>>>>>> ffc1923782ca395abaae45de0d5c68db083c6e71
+GPIO.setmode(GPIO.BCM)    
+channel = 6
+GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+
+while True:
+    c = 0
+    startTime = time.time()
+    while (time.time() - startTime < 60):
+        c = c+1
+        GPIO.wait_for_edge(channel, GPIO.FALLING)
+        print("Radiation Detected At", str(datetime.datetime.now()))
+    print("Counts Last Minute", c)
+    
+    
+    
+    
