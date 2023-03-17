@@ -1,7 +1,6 @@
-# coding=utf-8
- 
 import RPi.GPIO as GPIO
 import datetime
+<<<<<<< HEAD
 import time
  
 def my_callback(channel):
@@ -25,3 +24,8 @@ for i in range(0,30):
     time.sleep(1)
  
 print("Goodbye!")
+=======
+
+channel = GPIO.wait_for_edge(channel, GPIO_FALLING)
+print('Edge detected on channel', channel)
+>>>>>>> ffc1923782ca395abaae45de0d5c68db083c6e71
