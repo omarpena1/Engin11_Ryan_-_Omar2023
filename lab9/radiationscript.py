@@ -4,7 +4,7 @@ import time
 import sys
 
 GPIO.setmode(GPIO.BCM)    
-channel = 6
+channel = 17
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 assert len(sys.argv) == 4, "use the correct number of arguments!"
@@ -25,7 +25,7 @@ while time.time() - startTime < int(sys.argv[1]):
     c = 0
     loopTime = time.time()
     while time.time() - loopTime < int(sys.argv[2]):
-        channel = GPIO.wait_for_edge(6, GPIO.FALLING, timeout = 1000)
+        channel = GPIO.wait_for_edge(17, GPIO.FALLING, timeout = 1000)
         if channel is not None:
             print("Radiation Detected At", str(datetime.datetime.now()))
             c = c+1
